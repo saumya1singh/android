@@ -318,7 +318,7 @@ public abstract class DrawerActivity extends ToolbarActivity
      */
     private void setupQuotaElement() {
         mQuotaView = (LinearLayout) findQuotaViewById(R.id.drawer_quota);
-        mQuotaProgressBar = (ProgressBar) findQuotaViewById(R.id.drawer_quota_ProgressBar);
+        mQuotaProgressBar = (ProgressBar) findQuotaViewById(R.id.drawer_quota_progressBar);
         mQuotaTextPercentage = (TextView) findQuotaViewById(R.id.drawer_quota_percentage);
         mQuotaTextLink = (TextView) findQuotaViewById(R.id.drawer_quota_link);
         ThemeUtils.colorProgressBar(mQuotaProgressBar, ThemeUtils.primaryColor(this));
@@ -1005,9 +1005,7 @@ public abstract class DrawerActivity extends ToolbarActivity
                     final Quota quota = userInfo.getQuota();
 
                     if (quota != null) {
-                        final long used = quota.getUsed();
-                        final long total = quota.getTotal();
-                        final int relative = (int) Math.ceil(quota.getRelative());
+
                         final long quotaValue = quota.getQuota();
 
                         runOnUiThread(new Runnable() {
@@ -1020,7 +1018,10 @@ public abstract class DrawerActivity extends ToolbarActivity
                                      * it is available and calculated (> 0) or
                                      * in case of legacy servers (==QUOTA_LIMIT_INFO_NOT_AVAILABLE)
                                      */
-                                    setQuotaInformation(used, total, relative, quotaValue);
+                                    DisplayUtils.setQuotaInformation(mQuotaProgressBar, mQuotaTextPercentage,
+                                        quota, DrawerActivity.this);
+                                    updateQuotaLink();
+                                    showQuota(true);
                                 } else {
                                     /*
                                      * quotaValue < 0 means special cases like
