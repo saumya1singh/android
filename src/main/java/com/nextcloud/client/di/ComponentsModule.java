@@ -20,6 +20,7 @@
 
 package com.nextcloud.client.di;
 
+import com.nextcloud.client.etm.EtmActivity;
 import com.nextcloud.client.onboarding.WhatsNewActivity;
 import com.owncloud.android.authentication.AuthenticatorActivity;
 import com.owncloud.android.authentication.DeepLinkLoginActivity;
@@ -123,6 +124,7 @@ abstract class ComponentsModule {
     @ContributesAndroidInjector abstract UploadPathActivity uploadPathActivity();
     @ContributesAndroidInjector abstract UserInfoActivity userInfoActivity();
     @ContributesAndroidInjector abstract WhatsNewActivity whatsNewActivity();
+    @ContributesAndroidInjector abstract EtmActivity etmActivity();
 
     @ContributesAndroidInjector abstract ExtendedListFragment extendedListFragment();
     @ContributesAndroidInjector abstract FileDetailFragment fileDetailFragment();

@@ -871,4 +871,11 @@
     <string name="could_not_retrieve_url">Could not retrieve url</string>
     <string name="copy_internal_link">Copy internal link</string>
     <string name="copy_internal_link_subline">Only works for users with access to this folder</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="etm_title" translatable="false">Engineering &amp; Test Module</string>
+    <string name="etm_preferences" translatable="false">Preferences</string>
+    <string name="etm_share" translatable="false">Share</string>
 </resources>

@@ -24,7 +24,9 @@ import android.accounts.AccountManager;
 import android.app.Application;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.preference.PreferenceManager;
 
 import com.nextcloud.client.account.CurrentAccountProvider;
 import com.nextcloud.client.account.UserAccountManager;
@@ -66,6 +68,11 @@ class AppModule {
     @Provides
     AppPreferences preferences(Application application) {
         return AppPreferencesImpl.fromContext(application);
+    }
+
+    @Provides
+    SharedPreferences sharedPreferences(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     @Provides
